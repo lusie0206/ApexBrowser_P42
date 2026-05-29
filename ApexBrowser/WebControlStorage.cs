@@ -29,8 +29,6 @@ internal sealed class WebControlStorage
     public void SetActiveWebControl(IWebControl webControl)
     {
         activeWebControl = webControl;
-
-        activeWebControl.
     }
 
 }
