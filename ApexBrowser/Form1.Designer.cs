@@ -29,22 +29,31 @@
         private void InitializeComponent()
         {
             buttonTest = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // buttonTest
             // 
-            buttonTest.Location = new Point(694, 12);
+            buttonTest.Location = new Point(694, 38);
             buttonTest.Name = "buttonTest";
             buttonTest.Size = new Size(94, 29);
             buttonTest.TabIndex = 0;
             buttonTest.Text = "Test";
             buttonTest.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(12, 38);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(659, 400);
+            flowLayoutPanel1.TabIndex = 1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(buttonTest);
             Name = "Form1";
             Text = "Form1";
@@ -54,5 +63,6 @@
         #endregion
 
         private Button buttonTest;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
