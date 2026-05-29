@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            webView2Component = new Microsoft.Web.WebView2.WinForms.WebView2();
+            ((System.ComponentModel.ISupportInitialize)webView2Component).BeginInit();
             SuspendLayout();
             // 
-            // webView21
+            // webView2Component
             // 
-            webView21.AllowExternalDrop = true;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(3, 3);
-            webView21.Name = "webView21";
-            webView21.Size = new Size(394, 294);
-            webView21.TabIndex = 0;
-            webView21.ZoomFactor = 1D;
+            webView2Component.AllowExternalDrop = true;
+            webView2Component.CreationProperties = null;
+            webView2Component.DefaultBackgroundColor = Color.White;
+            webView2Component.Dock = DockStyle.Fill;
+            webView2Component.Location = new Point(0, 0);
+            webView2Component.Name = "webView2Component";
+            webView2Component.Size = new Size(400, 300);
+            webView2Component.TabIndex = 0;
+            webView2Component.ZoomFactor = 1D;
             // 
             // WebControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            Controls.Add(webView21);
+            BackColor = Color.LightGray;
+            Controls.Add(webView2Component);
             Name = "WebControl";
             Size = new Size(400, 300);
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((System.ComponentModel.ISupportInitialize)webView2Component).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView2Component;
     }
 }

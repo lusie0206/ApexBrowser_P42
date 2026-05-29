@@ -34,18 +34,20 @@
             // 
             // buttonTest
             // 
-            buttonTest.Location = new Point(694, 38);
+            buttonTest.Location = new Point(694, 12);
             buttonTest.Name = "buttonTest";
             buttonTest.Size = new Size(94, 29);
             buttonTest.TabIndex = 0;
             buttonTest.Text = "Test";
             buttonTest.UseVisualStyleBackColor = true;
+            buttonTest.Click += buttonTest_Click;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(12, 38);
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(12, 71);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(659, 400);
+            flowLayoutPanel1.Size = new Size(776, 367);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // Form1
