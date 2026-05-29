@@ -66,6 +66,8 @@ namespace ApexBrowser
 
         public WebView2 GetWebView2Instance() => webView2Component;
 
+        public string GetActualUrl() => webView2Component.Source?.AbsoluteUri ?? string.Empty;
+
         public void GoBack()
         {
             webView2Component.GoBack();
@@ -74,6 +76,11 @@ namespace ApexBrowser
         public void GoForward()
         {
             webView2Component.GoForward();
+        }
+
+        public void Reload()
+        {
+            webView2Component.Reload();
         }
 
         public void Navigate(string url)
