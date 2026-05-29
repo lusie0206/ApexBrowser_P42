@@ -1,8 +1,10 @@
-﻿using Microsoft.Web.WebView2.WinForms;
+﻿using ApexBrowser.Interfaces;
+using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ApexBrowser
 {
-    public partial class WebControl : UserControl
+    public partial class WebControl : UserControl, IWebControl
     {
         private const string startupUrl = "https://developer.microsoft.com/en-us/microsoft-edge/webview2/?form=MA13LH";
 
@@ -49,23 +51,36 @@ namespace ApexBrowser
                             //UpdateNavigationUrl();
                         };
 
-
-
                         // Make naviagtion
-                        MakeNavigation(startupUrl);
+                        Navigate(startupUrl);
                     }
                     else
                     {
-                        MessageBox.Show($"WebView2 initialization error: {e.InitializationException.Message}");
+                        Debug.WriteLine($"WebView2 initialization error: {e.InitializationException.Message}");
                     }
                 };
             }
         }
 
-        private void MakeNavigation(string url)
+        #region IWebControl
+
+        public WebView2 GetWebView2Instance() => webView2Component;
+        
+        public void GoBack()
+        {
+            webView2Component.GoBack();
+        }
+
+        public void GoForward()
+        {
+            webView2Component.GoForward();
+        }
+
+        public void Navigate(string url)
         {
             webView2Component.Source = new Uri(url);
         }
 
+        #endregion
     }
 }
