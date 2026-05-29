@@ -47,8 +47,7 @@ namespace ApexBrowser
                                 MessageBox.Show($"Page loading error {e2.WebErrorStatus}");
                             }
 
-                            //UpdateNavigationButtons();
-                            //UpdateNavigationUrl();
+                            WebControlStorage.Instance.NotifyNavigationCompleted();
                         };
 
                         // Make naviagtion

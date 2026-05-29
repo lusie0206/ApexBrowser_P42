@@ -10,10 +10,27 @@ namespace ApexBrowser
             InitializeComponent();
 
             WebControlStorage.Instance.WebControlSelected += Instance_WebControlSelected;
+            WebControlStorage.Instance.WebControlNavigationCompleted += Instance_WebControlNavigationCompleted;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SetInitialStateForNavigationPanel();
+        }
+
+        private void SetInitialStateForNavigationPanel()
+        {
+            buttonBack.Enabled = false;
+            buttonForward.Enabled = false;
+            textBoxUrl.Text = string.Empty;
+        }
 
         private void Instance_WebControlSelected(object? sender, EventArgs e)
+        {
+            UpdateNavigationPanel();
+        }
+
+        private void Instance_WebControlNavigationCompleted(object? sender, EventArgs e)
         {
             UpdateNavigationPanel();
         }
@@ -39,7 +56,6 @@ namespace ApexBrowser
 
         #region Navigation
         private IWebControl GetWebControl() => WebControlStorage.Instance.GetActiveWebControl();
-
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
@@ -70,5 +86,6 @@ namespace ApexBrowser
         }
 
         #endregion
+
     }
 }

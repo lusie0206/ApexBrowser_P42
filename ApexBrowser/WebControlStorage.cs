@@ -22,6 +22,7 @@ internal sealed class WebControlStorage
     #endregion
 
     public event EventHandler WebControlSelected;
+    public event EventHandler WebControlNavigationCompleted;
 
     private IWebControl activeWebControl;
 
@@ -32,6 +33,11 @@ internal sealed class WebControlStorage
         activeWebControl = webControl;
 
         WebControlSelected?.Invoke(null, EventArgs.Empty);
+    }
+
+    public void NotifyNavigationCompleted()
+    {
+        WebControlNavigationCompleted?.Invoke(null, EventArgs.Empty);
     }
 
 }
