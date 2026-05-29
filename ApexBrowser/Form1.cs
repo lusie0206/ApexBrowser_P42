@@ -1,4 +1,5 @@
 using ApexBrowser.Interfaces;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace ApexBrowser
 {
@@ -7,6 +8,28 @@ namespace ApexBrowser
         public Form1()
         {
             InitializeComponent();
+
+            WebControlStorage.Instance.WebControlSelected += Instance_WebControlSelected;
+        }
+
+
+        private void Instance_WebControlSelected(object? sender, EventArgs e)
+        {
+            UpdateNavigationPanel();
+        }
+
+        private void UpdateNavigationPanel()
+        {
+            if (GetWebControl() is IWebControl webControl && webControl.GetWebView2Instance() is WebView2 webView2Element)
+            {
+                bool canGoBack = webView2Element.CanGoBack;
+                bool canGoForward = webView2Element.CanGoForward;
+                string actualUrl = webControl.GetActualUrl();
+
+                buttonBack.Enabled = canGoBack;
+                buttonForward.Enabled = canGoForward;
+                textBoxUrl.Text = actualUrl;
+            }
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
@@ -23,7 +46,7 @@ namespace ApexBrowser
             GetWebControl()?.GoBack();
         }
 
-        private void buttonForvard_Click(object sender, EventArgs e)
+        private void buttonForward_Click(object sender, EventArgs e)
         {
             GetWebControl()?.GoForward();
         }

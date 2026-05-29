@@ -21,14 +21,17 @@ internal sealed class WebControlStorage
     }
     #endregion
 
-    private IWebControl activeWebControl;
+    public event EventHandler WebControlSelected;
 
+    private IWebControl activeWebControl;
 
     public IWebControl GetActiveWebControl() => activeWebControl;
 
     public void SetActiveWebControl(IWebControl webControl)
     {
         activeWebControl = webControl;
+
+        WebControlSelected?.Invoke(null, EventArgs.Empty);
     }
 
 }
