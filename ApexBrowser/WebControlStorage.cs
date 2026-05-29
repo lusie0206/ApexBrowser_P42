@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApexBrowser.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,16 @@ internal sealed class WebControlStorage
     }
     #endregion
 
+    private IWebControl activeWebControl;
 
+
+    public IWebControl GetActiveWebControl() => activeWebControl;
+
+    public void SetActiveWebControl(IWebControl webControl)
+    {
+        activeWebControl = webControl;
+
+        activeWebControl.
+    }
 
 }

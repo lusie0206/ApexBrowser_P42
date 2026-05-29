@@ -65,7 +65,7 @@ namespace ApexBrowser
         #region IWebControl
 
         public WebView2 GetWebView2Instance() => webView2Component;
-        
+
         public void GoBack()
         {
             webView2Component.GoBack();
@@ -82,5 +82,10 @@ namespace ApexBrowser
         }
 
         #endregion
+
+        private void WebControl_Click(object sender, EventArgs e)
+        {
+            WebControlStorage.Instance.SetActiveWebControl(this);
+        }
     }
 }
