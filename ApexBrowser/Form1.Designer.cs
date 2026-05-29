@@ -31,7 +31,7 @@
             buttonTest = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonBack = new Button();
-            buttonForvard = new Button();
+            buttonForward = new Button();
             buttonReload = new Button();
             textBoxUrl = new TextBox();
             buttonSearch = new Button();
@@ -65,15 +65,15 @@
             buttonBack.UseVisualStyleBackColor = true;
             buttonBack.Click += buttonBack_Click;
             // 
-            // buttonForvard
+            // buttonForward
             // 
-            buttonForvard.Location = new Point(66, 12);
-            buttonForvard.Name = "buttonForvard";
-            buttonForvard.Size = new Size(48, 48);
-            buttonForvard.TabIndex = 3;
-            buttonForvard.Text = ">";
-            buttonForvard.UseVisualStyleBackColor = true;
-            buttonForvard.Click += buttonForvard_Click;
+            buttonForward.Location = new Point(66, 12);
+            buttonForward.Name = "buttonForward";
+            buttonForward.Size = new Size(48, 48);
+            buttonForward.TabIndex = 3;
+            buttonForward.Text = ">";
+            buttonForward.UseVisualStyleBackColor = true;
+            buttonForward.Click += buttonForward_Click;
             // 
             // buttonReload
             // 
@@ -111,7 +111,7 @@
             Controls.Add(buttonSearch);
             Controls.Add(textBoxUrl);
             Controls.Add(buttonReload);
-            Controls.Add(buttonForvard);
+            Controls.Add(buttonForward);
             Controls.Add(buttonBack);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(buttonTest);
@@ -126,7 +126,7 @@
         private Button buttonTest;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button buttonBack;
-        private Button buttonForvard;
+        private Button buttonForward;
         private Button buttonReload;
         private TextBox textBoxUrl;
         private Button buttonSearch;
