@@ -39,6 +39,7 @@
             buttonTest.TabIndex = 0;
             buttonTest.Text = "Test";
             buttonTest.UseVisualStyleBackColor = true;
+            buttonTest.Click += buttonTest_Click;
             // 
             // Form1
             // 

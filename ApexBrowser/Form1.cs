@@ -6,5 +6,10 @@ namespace ApexBrowser
         {
             InitializeComponent();
         }
+
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            // comment
+        }
     }
 }
