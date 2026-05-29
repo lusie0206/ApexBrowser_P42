@@ -10,7 +10,9 @@ namespace ApexBrowser.Interfaces;
 internal interface IWebControl
 {
     WebView2 GetWebView2Instance();
+    string GetActualUrl();
     void GoBack();
     void GoForward();
+    void Reload();
     void Navigate(string url);
 }
