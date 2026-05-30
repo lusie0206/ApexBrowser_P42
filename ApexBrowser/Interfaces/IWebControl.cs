@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApexBrowser.Interfaces;
 
-internal interface IWebControl
+public interface IWebControl
 {
     WebView2 GetWebView2Instance();
     string GetActualUrl();

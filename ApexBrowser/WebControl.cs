@@ -28,18 +28,24 @@ namespace ApexBrowser
         {
             InitializeWebView();
             webView2Component.EnsureCoreWebView2Async();
+            labelHeader.Text = GetTabName(startupUrl);
         }
 
+        private string GetTabName(string url)
+        {
+            Uri uri = new Uri(url);
+            string domain = uri.Host;
+            return domain;
+        }
         private void InitializeWebView()
         {
             if (webView2Component != null)
             {
-                // 1. Event to get state that Core is loaded
                 webView2Component.CoreWebView2InitializationCompleted += (sender, e) =>
                 {
                     if (e.IsSuccess)
                     {
-                        // 2. Event to get state that new page is loaded
+                       
                         webView2Component.CoreWebView2.NavigationCompleted += (sender, e2) =>
                         {
                             if (!e.IsSuccess)
@@ -50,7 +56,7 @@ namespace ApexBrowser
                             WebControlStorage.Instance.NotifyNavigationCompleted();
                         };
 
-                        // Make naviagtion
+                        
                         Navigate(startupUrl);
                     }
                     else
@@ -85,6 +91,7 @@ namespace ApexBrowser
         public void Navigate(string url)
         {
             webView2Component.Source = new Uri(url);
+            labelHeader.Text = GetTabName(url);
         }
 
         #endregion

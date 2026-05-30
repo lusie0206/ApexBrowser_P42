@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace ApexBrowser;
 
-internal sealed class WebControlStorage
+internal sealed class WebControlStorage: INavigationManager
 {
     #region Singleton
     public static WebControlStorage Instance { get; } = new();
-
     private WebControlStorage()
     {
     }
@@ -20,18 +19,17 @@ internal sealed class WebControlStorage
     {
     }
     #endregion
+   
+    public event EventHandler? WebControlSelected;
+    public event EventHandler? WebControlNavigationCompleted;
 
-    public event EventHandler WebControlSelected;
-    public event EventHandler WebControlNavigationCompleted;
-
-    private IWebControl activeWebControl;
+    private IWebControl? activeWebControl;
 
     public IWebControl GetActiveWebControl() => activeWebControl;
 
     public void SetActiveWebControl(IWebControl webControl)
     {
         activeWebControl = webControl;
-
         WebControlSelected?.Invoke(null, EventArgs.Empty);
     }
 
@@ -40,4 +38,7 @@ internal sealed class WebControlStorage
         WebControlNavigationCompleted?.Invoke(null, EventArgs.Empty);
     }
 
+    
+
+   
 }
