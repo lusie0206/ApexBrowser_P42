@@ -85,6 +85,7 @@ namespace ApexBrowser
         public void Navigate(string url)
         {
             webView2Component.Source = new Uri(url);
+            labelHeader.Text = webView2Component.Source.Host;
         }
 
         #endregion

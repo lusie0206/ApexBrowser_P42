@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             buttonTest = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            buttonBack = new Button();
-            buttonForward = new Button();
-            buttonReload = new Button();
-            textBoxUrl = new TextBox();
-            buttonSearch = new Button();
+            navigationControl1 = new NavigationControl();
             SuspendLayout();
             // 
             // buttonTest
@@ -55,81 +52,32 @@
             flowLayoutPanel1.Size = new Size(1171, 631);
             flowLayoutPanel1.TabIndex = 1;
             // 
-            // buttonBack
+            // navigationControl1
             // 
-            buttonBack.Location = new Point(12, 12);
-            buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(48, 48);
-            buttonBack.TabIndex = 2;
-            buttonBack.Text = "<";
-            buttonBack.UseVisualStyleBackColor = true;
-            buttonBack.Click += buttonBack_Click;
-            // 
-            // buttonForward
-            // 
-            buttonForward.Location = new Point(66, 12);
-            buttonForward.Name = "buttonForward";
-            buttonForward.Size = new Size(48, 48);
-            buttonForward.TabIndex = 3;
-            buttonForward.Text = ">";
-            buttonForward.UseVisualStyleBackColor = true;
-            buttonForward.Click += buttonForward_Click;
-            // 
-            // buttonReload
-            // 
-            buttonReload.Location = new Point(120, 12);
-            buttonReload.Name = "buttonReload";
-            buttonReload.Size = new Size(48, 48);
-            buttonReload.TabIndex = 4;
-            buttonReload.Text = "R";
-            buttonReload.UseVisualStyleBackColor = true;
-            buttonReload.Click += buttonReload_Click;
-            // 
-            // textBoxUrl
-            // 
-            textBoxUrl.Location = new Point(174, 23);
-            textBoxUrl.Name = "textBoxUrl";
-            textBoxUrl.Size = new Size(907, 27);
-            textBoxUrl.TabIndex = 5;
-            textBoxUrl.KeyDown += textBoxUrl_KeyDown;
-            // 
-            // buttonSearch
-            // 
-            buttonSearch.Location = new Point(1087, 12);
-            buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(96, 48);
-            buttonSearch.TabIndex = 6;
-            buttonSearch.Text = "Search";
-            buttonSearch.UseVisualStyleBackColor = true;
-            buttonSearch.Click += buttonSearch_Click;
+            navigationControl1.Location = new Point(12, 12);
+            navigationControl1.Name = "navigationControl1";
+            navigationControl1.Size = new Size(1171, 41);
+            navigationControl1.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1328, 714);
-            Controls.Add(buttonSearch);
-            Controls.Add(textBoxUrl);
-            Controls.Add(buttonReload);
-            Controls.Add(buttonForward);
-            Controls.Add(buttonBack);
+            Controls.Add(navigationControl1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(buttonTest);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Form1";
+            Text = "Browser";
             Load += Form1_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Button buttonTest;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button buttonBack;
-        private Button buttonForward;
-        private Button buttonReload;
-        private TextBox textBoxUrl;
-        private Button buttonSearch;
+        private NavigationControl navigationControl1;
     }
 }
