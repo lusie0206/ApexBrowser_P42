@@ -9,6 +9,9 @@ namespace ApexBrowser
         {
             InitializeComponent();
 
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.ItemSize = new Size(160, 28);
+
             WebControlStorage.Instance.WebControlSelected += Instance_WebControlSelected;
             WebControlStorage.Instance.WebControlNavigationCompleted += Instance_WebControlNavigationCompleted;
         }
@@ -49,11 +52,6 @@ namespace ApexBrowser
             }
         }
 
-        private void buttonTest_Click(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Controls.Add(new WebControl() { Width = 400, Height = 300 });
-        }
-
         #region Navigation
         private IWebControl GetWebControl() => WebControlStorage.Instance.GetActiveWebControl();
 
@@ -87,5 +85,51 @@ namespace ApexBrowser
 
         #endregion
 
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            var tab = new TabPage("<Tab name>");
+            tab.Controls.Add(new WebControl() { AutoSize = true, Dock = DockStyle.Fill });
+            tabControl1.TabPages.Add(tab);
+            tabControl1.SelectTab(tabControl1.TabCount - 1);
+
+            LinkNavigationPanel();
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab is TabPage pageToRemove)
+            {
+                tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            LinkNavigationPanel();
+        }
+
+        private void LinkNavigationPanel()
+        {
+            if (tabControl1.SelectedTab?.Controls.OfType<WebControl>().FirstOrDefault() is IWebControl webControl)
+            {
+                webControl.SetActive();
+            }
+        }
+
+        private void buttonNote_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var tab = new TabPage("<Tab name>");
+
+            tab.Controls.Add(new WebControl() { AutoSize = true, Dock = DockStyle.Fill });
+
+
+            tabControl2.TabPages.Add(tab);
+        }
     }
 }

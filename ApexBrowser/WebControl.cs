@@ -15,7 +15,7 @@ namespace ApexBrowser
 {
     public partial class WebControl : UserControl, IWebControl
     {
-        private const string startupUrl = "https://developer.microsoft.com/en-us/microsoft-edge/webview2/?form=MA13LH";
+        private const string startupUrl = "https://www.google.com/";
 
         public WebControl()
         {
@@ -37,6 +37,9 @@ namespace ApexBrowser
                 // 1. Event to get state that Core is loaded
                 webView2Component.CoreWebView2InitializationCompleted += (sender, e) =>
                 {
+                    webView2Component.CoreWebView2.NewWindowRequested += CoreWebView2_NewWindowRequested;
+                    webView2Component.CoreWebView2.DocumentTitleChanged += CoreWebView2_DocumentTitleChanged;
+
                     if (e.IsSuccess)
                     {
                         // 2. Event to get state that new page is loaded
@@ -59,6 +62,16 @@ namespace ApexBrowser
                     }
                 };
             }
+        }
+
+        private void CoreWebView2_DocumentTitleChanged(object? sender, object e)
+        {
+            Debug.WriteLine("Title changed: " + webView2Component.CoreWebView2.DocumentTitle);
+        }
+
+        private void CoreWebView2_NewWindowRequested(object? sender, Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            e.Handled = true;
         }
 
         #region IWebControl
@@ -87,11 +100,12 @@ namespace ApexBrowser
             webView2Component.Source = new Uri(url);
         }
 
-        #endregion
-
-        private void WebControl_Click(object sender, EventArgs e)
+        public void SetActive()
         {
             WebControlStorage.Instance.SetActiveWebControl(this);
         }
+
+        #endregion
+
     }
 }

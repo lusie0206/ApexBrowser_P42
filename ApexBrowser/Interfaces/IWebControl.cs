@@ -15,4 +15,5 @@ internal interface IWebControl
     void GoForward();
     void Reload();
     void Navigate(string url);
+    void SetActive();
 }
